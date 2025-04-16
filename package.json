@@ -2,14 +2,16 @@
   "name": "easy-file",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx packages/core/src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   }
 }
