@@ -4,14 +4,14 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "tsx packages/core/src/index.ts"
+    "dev": "node scripts/dev.js core -f esm"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "esbuild": "^0.25.2",
     "minimist": "^1.2.8",
-    "tsx": "^4.19.3",
     "typescript": "^5.8.3"
   }
 }
