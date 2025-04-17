@@ -1,8 +1,8 @@
-import { v4 as uuidv4 } from 'uuid';
+import { calculateFileMD5 } from "@easy-file/shared";
 
-export class FileUpload {
+export {
+    calculateFileMD5
 }
-
 
 
 /**
