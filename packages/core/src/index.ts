@@ -1,25 +1,13 @@
-import { isObject } from "@easy-file/shared";
+import { v4 as uuidv4 } from 'uuid';
 
-// 默认切片大小 10MB
-const DEFAULT_CHUNK_SIZE = 1024 * 1024 * 10; // 10MB
-
-/**
- * 分割文件
- * @param file 要切分的文件
- * @param chunkSize 切片大小 单位MB
- * @returns 切片数组
- */
-export function splitChunks(file: File, chunkSize: number = DEFAULT_CHUNK_SIZE) {
-    debugger
-    // 分片数量
-    const chunkCount = Math.ceil(file.size / chunkSize);
-    console.log("chunkCount", chunkCount);
-
+export class FileUpload {
 }
 
 
 
-
+/**
+ * 1、分割文件
+ */
 
 
 // 文件切边可以分为按数量切片和按大小切片
