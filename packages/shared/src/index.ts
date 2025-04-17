@@ -2,6 +2,8 @@ import SparkMD5 from 'spark-md5';
 
 // 默认切片大小 10MB
 const DEFAULT_CHUNK_SIZE = 1024 * 1024 * 10; // 10MB
+// 做大切片数量 100
+const MAX_CHUNK_COUNT = 100;
 /**
  * 分割文件
  * @param file 要切分的文件
@@ -10,8 +12,14 @@ const DEFAULT_CHUNK_SIZE = 1024 * 1024 * 10; // 10MB
  */
 export function splitChunks(file: File, chunkSize: number = DEFAULT_CHUNK_SIZE) {
     // 分片数量
-    const chunkCount = Math.ceil(file.size / chunkSize),
+    let chunkCount = Math.ceil(file.size / chunkSize),
         chunks = [];
+
+    if (chunkCount > MAX_CHUNK_COUNT) {
+        chunkCount = MAX_CHUNK_COUNT;
+        chunkSize = Math.ceil(file.size / chunkCount);
+    }
+
     for (let i = 0; i < chunkCount; i++) {
         const start = i * chunkSize;
         const end = Math.min(start + chunkSize, file.size);
