@@ -15,7 +15,6 @@ const format = args.f || 'esm';
 
 const entry = path.resolve(__dirname, `../packages/${target}/src/index.ts`)
 const outfile = path.resolve(__dirname, `../packages/${target}/dist/index.js`)
-console.log('entry', entry);
 
 esbuild.build({
     entryPoints: [entry],
@@ -23,7 +22,7 @@ esbuild.build({
     bundle: true,
     platform: 'browser',
     format,
-    globalName: 'EasyFile'
+    globalName: 'EasyFile',
 }).then(() => {
     console.log('Build successful');
 }).catch((error) => {
