@@ -1,5 +1,4 @@
 import SparkMD5 from 'spark-md5';
-import { DEFAULT_CHUNK_SIZE } from "./constants";
 import { splitChunks } from './fileChunk';
 /**
  * 计算文件MD5
@@ -23,7 +22,7 @@ export async function calculateFileMD5(file: File) {
  * @param chunkSize 切片大小 单位MB
  * @returns md5值
  */
-export async function calculateBigFileMD5(file: File, chunkSize: number = DEFAULT_CHUNK_SIZE) {
+export async function calculateBigFileMD5(file: File, chunkSize: number) {
     const { chunks } = splitChunks(file, chunkSize);
     const spark = new SparkMD5.ArrayBuffer();
     console.log('[MD5] 使用切片计算...');
@@ -43,7 +42,7 @@ export async function calculateBigFileMD5(file: File, chunkSize: number = DEFAUL
  * @param file 文件对象
  * @returns md5值
  */
-export function calculateHashWithWorker(file: File, chunkSize: number = DEFAULT_CHUNK_SIZE) {
+export function calculateHashWithWorker(file: File, chunkSize: number) {
     return new Promise<string>((resolve, reject) => {
         const worker = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
         worker.postMessage({ file, chunkSize });

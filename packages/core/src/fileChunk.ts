@@ -1,4 +1,4 @@
-import { DEFAULT_CHUNK_SIZE, MAX_CHUNK_COUNT } from "./constants";
+import { MAX_CHUNK_COUNT } from "./constants";
 
 /**
  * 分割文件
@@ -6,7 +6,7 @@ import { DEFAULT_CHUNK_SIZE, MAX_CHUNK_COUNT } from "./constants";
  * @param chunkSize 切片大小 单位MB
  * @returns 切片数组
  */
-export function splitChunks(file: File, chunkSize: number = DEFAULT_CHUNK_SIZE) {
+export function splitChunks(file: File, chunkSize: number) {
     // 分片数量
     let chunkCount = Math.ceil(file.size / chunkSize),
         chunks = [];

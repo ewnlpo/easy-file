@@ -1,3 +1,4 @@
+import { DEFAULT_CHUNK_SIZE } from "./constants";
 import { getFileSuffix } from "@easy-file/shared";
 import { calculateHashWithWorker } from "./hasher";
 import { splitChunks } from './fileChunk';
@@ -18,7 +19,7 @@ interface UploadOptions {
 
 // 创建上传任务
 export const createUploadTask = async (options: UploadOptions) => {
-    const { file, chunkSize, requestAdapter, onProgress, onSuccess, onError, onComplete } = options;
+    const { file, chunkSize = DEFAULT_CHUNK_SIZE, requestAdapter, onProgress, onSuccess, onError, onComplete } = options;
     const suffix = getFileSuffix(file.name);
     if (suffix === '') {
         throw new Error('文件格式错误');
