@@ -28,3 +28,14 @@ esbuild.build({
 }).catch((error) => {
     console.error('Build failed', error);
 });
+
+// 构建 worker 独立输出
+esbuild.build({
+    entryPoints: [path.resolve(__dirname, `../packages/${target}/src/worker.ts`)],
+    outfile: path.resolve(__dirname, `../packages/${target}/dist/worker.js`),
+    bundle: true,
+    format: 'esm',
+    target: ['esnext'],
+}).then(() => {
+    console.log('✅ Worker 构建完成');
+});

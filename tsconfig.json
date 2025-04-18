@@ -4,6 +4,7 @@
     "outDir": "dist",
     // 用于解析非相对模块名的基准目录
     "baseUrl": ".",
+    "lib": ["DOM", "ESNext", "WebWorker"],
     // 路径映射配置，允许使用别名导入模块
     "paths": {
       "@easy-file/*": [
